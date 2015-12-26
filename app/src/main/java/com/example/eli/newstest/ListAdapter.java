@@ -36,9 +36,7 @@ public class ListAdapter extends ArrayAdapter<ItemNews> {
         TextView tvFormule = (TextView) rowView.findViewById(R.id.tv_formule);
         TextView tvUrl = (TextView) rowView.findViewById(R.id.tv_url);
 
-        /*if (currentItem.getUrl().equals("qp5")){
-            itemsArrayList.remove(1);
-        }*/
+
 
         tvFormule.setText(currentItem.getFormule());
         tvUrl.setText(currentItem.getUrl());

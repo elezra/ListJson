@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class MainActivity extends Activity {
@@ -67,6 +68,9 @@ public class MainActivity extends Activity {
 
                 if (newsItems.size()>listPos) {
                     ItemNews newItem = newsItems.get(listPos);
+                    if (newItem.getUrl().equals("qp5")){
+                        adapterNewsItems.remove(1);
+                    }
                     adapterNewsItems.add(new ItemNews(newItem.getFormule(), newItem.getUrl()));
                     adapter.notifyDataSetChanged();
                     listPos++;
