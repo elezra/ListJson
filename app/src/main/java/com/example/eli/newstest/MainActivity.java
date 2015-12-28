@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
     private String formula_value;
     private String url_value;
     private int listPos;
+    private ItemNews newItem;
 
 
     @Override
@@ -67,12 +68,21 @@ public class MainActivity extends Activity {
                 //adapter.notifyDataSetChanged();
 
                 if (newsItems.size()>listPos) {
-                    ItemNews newItem = newsItems.get(listPos);
+                    newItem = newsItems.get(listPos);
                     if (newItem.getUrl().equals("qp5")){
                         adapterNewsItems.remove(1);
                     }
-                    adapterNewsItems.add(new ItemNews(newItem.getFormule(), newItem.getUrl()));
-                    adapter.notifyDataSetChanged();
+
+
+                    if (!newItem.getUrl().equals("qp6")){
+                        adapterNewsItems.add(new ItemNews(newItem.getFormule(), newItem.getUrl()));
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                        ItemNews indexItem = new ItemNews(newItem.getFormule(),newItem.getUrl());
+                        adapterNewsItems.add(0,indexItem);
+                        adapter.notifyDataSetChanged();
+                    }
                     listPos++;
                 }
             }
